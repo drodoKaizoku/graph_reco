@@ -1,0 +1,25 @@
+_format_version: "2.1"
+
+services:
+  - name: user-reco
+    url: http://host.docker.internal:5000
+    routes:
+      - name: user-route
+        paths:
+        - /u2c
+        methods: [GET]
+  - name: get-name
+    url: http://localhost:3000
+    routes:
+      - name: react-route
+        paths:
+        - /s3file
+
+
+  
+
+
+
+
+  
+  
