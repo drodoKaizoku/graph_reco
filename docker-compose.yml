@@ -12,8 +12,8 @@ services:
             - NEO4J_apoc_import_file_enabled=true
             - NEO4JLABS_PLUGINS=["apoc"]
         volumes:
-            - /Users/kaizoku/Desktop/system_reco/airflow/logs/import_neo4j:/import
-            - /Users/kaizoku/Desktop/system_reco/plugins_neo:/plugins
+            - /home/drodo/graph_reco/graph_reco/airflow/logs/import_neo4j:/import
+            - /home/drodo/graph_reco/graph_reco/plugins_neo:/plugins
         
 
     redis:
@@ -46,9 +46,8 @@ services:
             # - POSTGRES_DB=airflow
             # - REDIS_PASSWORD=redispass
         volumes:
-            - /Users/kaizoku/Desktop/system_reco/airflow/dags:/usr/local/airflow/dags
-            - /Users/kaizoku/Desktop/system_reco/airflow/plugins:/usr/local/airflow/plugins
-            - /Users/kaizoku/Desktop/system_reco/airflow/logs:/usr/local/airflow/logs
+            - /home/drodo/graph_reco/graph_reco/airflow/dags:/usr/local/airflow/dags
+            - /home/drodo/graph_reco/graph_reco/airflow/logs:/usr/local/airflow/logs
             # Uncomment to include custom plugins
             # - ./plugins:/usr/local/airflow/plugins
         ports:
@@ -86,9 +85,8 @@ services:
         depends_on:
             - webserver
         volumes:
-            - /Users/kaizoku/Desktop/system_reco/airflow/dags:/usr/local/airflow/dags
-            - /Users/kaizoku/Desktop/system_reco/airflow/plugins:/usr/local/airflow/plugins
-            - /Users/kaizoku/Desktop/system_reco/airflow/logs:/usr/local/airflow/logs
+            - /home/drodo/graph_reco/graph_reco/airflow/dags:/usr/local/airflow/dags
+            - /home/drodo/graph_reco/graph_reco/airflow/logs:/usr/local/airflow/logs
             # Uncomment to include custom plugins
             # - ./plugins:/usr/local/airflow/plugins
         environment:
@@ -112,9 +110,8 @@ services:
         depends_on:
             - scheduler
         volumes:
-            - /Users/kaizoku/Desktop/system_reco/airflow/dags:/usr/local/airflow/dags
-            - /Users/kaizoku/Desktop/system_reco/airflow/plugins:/usr/local/airflow/plugins
-            - /Users/kaizoku/Desktop/system_reco/airflow/logs:/usr/local/airflow/logs
+            - /home/drodo/graph_reco/graph_reco/airflow/dags:/usr/local/airflow/dags
+            - /home/drodo/graph_reco/graph_reco/airflow/logs:/usr/local/airflow/logs
         environment:
             - FERNET_KEY=46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLbfzqDDho=
             - EXECUTOR=Celery
