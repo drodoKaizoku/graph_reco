@@ -25,6 +25,8 @@ from relation_score_operator import RelationScoreOperator
 from pearson_similarity_operator import SimilarityPearsonNeo
 from relation_pearson_operator import RelationPearsonOperator
 
+import neo_request
+
 default_args={
 
     'owner': 'airflow_nj',

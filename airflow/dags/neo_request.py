@@ -70,7 +70,7 @@ bulk_insert_tracker = "LOAD CSV WITH HEADERS FROM 'file:///bulk_insert_tracker_n
 
 
 ## user retrieve hook
-sql_query = "SELECT id, gender, birth_year FROM rtbfv2.user WHERE id in {};".format(id_tuple)
+sql_query = "SELECT id, gender, birth_year FROM rtbfv2.user WHERE id in {};"
 
 ## user to neo4j
 bulk_insert_gender = "LOAD CSV WITH HEADERS FROM 'file:///bulk_user_gender_neo.csv' AS line WITH line MATCH (u:User {id: line.user_uid }) SET u.birth_year = line.birth_year MERGE (g:Gender {id: line.gender})  MERGE (g)-[:GENDER]->(u) RETURN u,g"
