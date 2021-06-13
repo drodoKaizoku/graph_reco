@@ -1,2 +1,3 @@
 airflow/logs/
 neo4j/
+airflow/dags/config.py

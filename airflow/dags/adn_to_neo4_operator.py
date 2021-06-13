@@ -6,6 +6,7 @@ from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
 
 from neo4j import GraphDatabase
+import neo_request
 
 class adnToNeo4j(BaseOperator):
 

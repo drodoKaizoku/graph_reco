@@ -1,6 +1,6 @@
 from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
-
+import config
 from neo4j import GraphDatabase
 
 class SimilarityNeo(BaseOperator):

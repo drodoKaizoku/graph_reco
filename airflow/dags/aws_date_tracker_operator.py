@@ -31,7 +31,6 @@ class AwsS3RetrieveDateTracker(BaseOperator):
         context['ti'].xcom_push(key="video_tracker", value=video_json)
 
 
-## METHODE A REFAIRE
 def json_to_csv(tracker_content,file_type):
     headers = ['user_uid','media_id','media_type','user_device']
     with open('/usr/local/airflow/logs/import_neo4j/bulk_insert_%s_neo.csv' %file_type,'w')  as outfile:
@@ -63,10 +62,6 @@ def json_to_csv(tracker_content,file_type):
 
 
 def video_data(tracker_content):
-        # headers = ['user_uid','media_id','media_type','type','action','total_time','current_time','ratio']
-        # with open('/usr/local/airflow/logs/import_neo4j/video_data.csv','w') as outfile:
-        #     writer = csv.writer(outfile)
-        #     writer.writerow(headers) 
 
         json_video = []
 
@@ -95,9 +90,7 @@ def video_data(tracker_content):
                 json_dump = json.dumps(data_set)
                 json_obj = json.loads(json_dump)
                 json_video.append(json_obj)
-            # data_csv = [user_uid,user_media_id,user_media_type,data_action,total_time,current_time,str(ratio)]
-                    
-            # writer.writerow(data_csv)
+
         return json_video
                 
 
