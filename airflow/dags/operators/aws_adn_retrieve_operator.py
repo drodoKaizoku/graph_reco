@@ -1,6 +1,6 @@
 from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
-from aws_tracker_retrieve_hook import AwsS3Retrieve
+from hook.aws_tracker_retrieve_hook import AwsS3Retrieve
 
 import base64
 import csv

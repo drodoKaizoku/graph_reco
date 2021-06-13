@@ -2,28 +2,27 @@ import airflow
 from airflow import DAG
 from datetime import datetime, timedelta
 from airflow.operators.dummy_operator import DummyOperator
-
+from operators.aws_tracker_retrieve_operator import RetrieveFileAws
 from airflow.operators.python_operator import PythonOperator
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.dummy_operator import DummyOperator
 
-from aws_tracker_retrieve_operator import RetrieveFileAws
-from tracker_to_neo4j_operator import trackerFormatData
-from user_retrieve_operator import UserRetrieveOperator
-from user_to_neo4j_operator import UserToNeoOperator
-from remove_user_csv_operator import RemoveUserCsv
-from aws_adn_retrieve_operator import AwsS3RetrieveAdn
-from adn_to_neo4_operator import adnToNeo4j
+from operators.tracker_to_neo4j_operator import trackerFormatData
+from operators.user_retrieve_operator import UserRetrieveOperator
+from operators.user_to_neo4j_operator import UserToNeoOperator
+from operators.remove_user_csv_operator import RemoveUserCsv
+from operators.aws_adn_retrieve_operator import AwsS3RetrieveAdn
+from operators.adn_to_neo4_operator import adnToNeo4j
 
-from aws_date_tracker_operator import AwsS3RetrieveDateTracker
-from aws_date_adn_operator import AwsS3RetrieveDateAdn
+from operators.aws_date_tracker_operator import AwsS3RetrieveDateTracker
+from operators.aws_date_adn_operator import AwsS3RetrieveDateAdn
 
-from similarity_operator import SimilarityNeo
-from ratio_operator import RatioOperator
-from relation_score_operator import RelationScoreOperator
+from operators.similarity_operator import SimilarityNeo
+from operators.ratio_operator import RatioOperator
+from operators.relation_score_operator import RelationScoreOperator
 
-from pearson_similarity_operator import SimilarityPearsonNeo
-from relation_pearson_operator import RelationPearsonOperator
+from operators.pearson_similarity_operator import SimilarityPearsonNeo
+from operators.relation_pearson_operator import RelationPearsonOperator
 
 import neo_request
 
