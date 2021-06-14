@@ -17,7 +17,8 @@ class RelationPearsonOperator(BaseOperator):
     def execute(self,**context):
         self.bulk_insert_neo4j()
                 
-
+    """ Bulk insert the pearson score of every user media in neo4j
+    """
     def bulk_insert_neo4j(self):
         driver = GraphDatabase.driver("bolt://neo4j:7687", auth=("neo4j", "lazarus"), encrypted=False)
         session = driver.session()

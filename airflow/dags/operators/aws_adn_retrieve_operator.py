@@ -17,14 +17,19 @@ class AwsS3RetrieveAdn(BaseOperator):
         self.hook = None
         super(AwsS3RetrieveAdn, self).__init__(*args, **kwargs)
 
-
+    
     def execute(self, **context):
         if not self.hook:
             self.hook = AwsS3Retrieve(prefix=Variable.get("_PREFIX_ADN"))
         tracker_content = self.hook.get_latest_file()
         json_to_csv(tracker_content = tracker_content,file_type='adn')
 
+""" Create a CSV based on the json file. We exctract the id of the media, type, entities and topics
 
+    Parameters
+    tracker_content: Content of the json file that we load from the S3
+    file_type: If it's a tracker or adn file
+"""
 def json_to_csv(tracker_content,file_type):
         headers = ['media_id','media_type','entities_name','topics_name']
         with open('/usr/local/airflow/logs/import_neo4j/bulk_insert_%s_neo.csv' %file_type,'w')  as outfile:

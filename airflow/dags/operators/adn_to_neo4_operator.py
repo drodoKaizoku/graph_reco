@@ -19,7 +19,8 @@ class adnToNeo4j(BaseOperator):
     def execute(self,**context):
         self.bulk_insert_neo4j()
                 
-
+    """ Bulk insert a csv which contain adn of content into neo4j database 
+    """
     def bulk_insert_neo4j(self):
         driver = GraphDatabase.driver("bolt://neo4j:7687", auth=("neo4j", "lazarus"), encrypted=False)
         session = driver.session()

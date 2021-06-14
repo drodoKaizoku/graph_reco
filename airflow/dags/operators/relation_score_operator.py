@@ -18,6 +18,9 @@ class RelationScoreOperator(BaseOperator):
         self.bulk_insert_neo4j()
                 
 
+             
+    """ Bulk insert the rating for a media from a user.
+    """
     def bulk_insert_neo4j(self):
         driver = GraphDatabase.driver("bolt://neo4j:7687", auth=("neo4j", "lazarus"), encrypted=False)
         session = driver.session()

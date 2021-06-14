@@ -31,6 +31,15 @@ class AwsS3RetrieveDateTracker(BaseOperator):
         context['ti'].xcom_push(key="video_tracker", value=video_json)
 
 
+
+""" Create a CSV file based on a JSON file. 
+    Data extracted: user_id, media_type
+
+    Parameters
+    tracker_content: content of the JSON file that we load from S3
+    file_type: If it's a tracker file or adn.
+
+"""
 def json_to_csv(tracker_content,file_type):
     headers = ['user_uid','media_id','media_type','user_device']
     with open('/usr/local/airflow/logs/import_neo4j/bulk_insert_%s_neo.csv' %file_type,'w')  as outfile:
@@ -61,6 +70,12 @@ def json_to_csv(tracker_content,file_type):
                 writer.writerow(data_csv)
 
 
+""" Create a CSV file based on tracker file. This csv will containt many informations about medias of video type.
+    Data in the csv: user_uid, media_id, media_type, action, total_time of the media, current time of the media watched, ratio
+
+    Parameters
+    tracker_content: tracker loaded from S3
+"""
 def video_data(tracker_content):
 
         json_video = []

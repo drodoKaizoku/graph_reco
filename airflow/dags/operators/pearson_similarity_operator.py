@@ -14,6 +14,9 @@ class SimilarityPearsonNeo(BaseOperator):
         session = driver.session()
         return session
     
+
+    """ Will create on neo4j relationship and score based on the similarity of jaccard algorithm.
+    """
     def create_similarity(self):
         session = self.conn()
         
